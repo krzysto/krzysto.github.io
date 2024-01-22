@@ -1,0 +1,702 @@
+<html>
+	<head>
+		<style>
+
+#fretboard {position:absolute; left:65px; top:65px;}
+
+input[type=checkbox] {
+display:none;
+}
+
+
+.fretboard[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#0080ff;
+text-align:center;
+font-size:13px;
+color:transparent;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.fretboard[type=checkbox]:checked + label
+{
+background: #0080FF;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+.master[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#0080ff;
+text-align:center;
+font-size:13px;
+color:#00f;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.master[type=checkbox]:checked + label
+{
+background: #0080FF;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+.sharpflat[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#0080ff;
+text-align:center;
+font-size:13px;
+color:#00f;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.sharpflat[type=checkbox]:checked + label
+{
+background: #0080FF;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+.fret[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#777;
+text-align:center;
+font-size:13px;
+color:#00f;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.fret[type=checkbox]:checked + label
+{
+background: #777;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+#s1f0 {position:absolute; width: 24px; height: 24px; left:515px; top:122px;}
+#s2f0 {position:absolute; width: 24px; height: 24px; left:515px; top:150px;}
+#s3f0 {position:absolute; width: 24px; height: 24px; left:515px; top:177px;}
+#s4f0 {position:absolute; width: 24px; height: 24px; left:515px; top:205px;}
+#s5f0 {position:absolute; width: 24px; height: 24px; left:515px; top:232px;}
+#s6f0 {position:absolute; width: 24px; height: 24px; left:515px; top:260px;}
+
+#s1f1 {position:absolute; width: 24px; height: 24px; left:570px; top:122px;}
+#s2f1 {position:absolute; width: 24px; height: 24px; left:570px; top:150px;}
+#s3f1 {position:absolute; width: 24px; height: 24px; left:570px; top:177px;}
+#s4f1 {position:absolute; width: 24px; height: 24px; left:570px; top:205px;}
+#s5f1 {position:absolute; width: 24px; height: 24px; left:570px; top:232px;}
+#s6f1 {position:absolute; width: 24px; height: 24px; left:570px; top:260px;}
+
+#s1f2 {position:absolute; width: 24px; height: 24px; left:618px; top:122px;}
+#s2f2 {position:absolute; width: 24px; height: 24px; left:618px; top:150px;}
+#s3f2 {position:absolute; width: 24px; height: 24px; left:618px; top:177px;}
+#s4f2 {position:absolute; width: 24px; height: 24px; left:618px; top:205px;}
+#s5f2 {position:absolute; width: 24px; height: 24px; left:618px; top:232px;}
+#s6f2 {position:absolute; width: 24px; height: 24px; left:618px; top:260px;}
+
+#s1f3 {position:absolute; width: 24px; height: 24px; left:666px; top:122px;}
+#s2f3 {position:absolute; width: 24px; height: 24px; left:666px; top:150px;}
+#s3f3 {position:absolute; width: 24px; height: 24px; left:666px; top:177px;}
+#s4f3 {position:absolute; width: 24px; height: 24px; left:666px; top:205px;}
+#s5f3 {position:absolute; width: 24px; height: 24px; left:666px; top:232px;}
+#s6f3 {position:absolute; width: 24px; height: 24px; left:666px; top:260px;}
+
+#s1f4 {position:absolute; width: 24px; height: 24px; left:720px; top:122px;}
+#s2f4 {position:absolute; width: 24px; height: 24px; left:720px; top:150px;}
+#s3f4 {position:absolute; width: 24px; height: 24px; left:720px; top:177px;}
+#s4f4 {position:absolute; width: 24px; height: 24px; left:720px; top:205px;}
+#s5f4 {position:absolute; width: 24px; height: 24px; left:720px; top:232px;}
+#s6f4 {position:absolute; width: 24px; height: 24px; left:720px; top:260px;}
+
+#s1f5 {position:absolute; width: 24px; height: 24px; left:770px; top:122px;}
+#s2f5 {position:absolute; width: 24px; height: 24px; left:770px; top:150px;}
+#s3f5 {position:absolute; width: 24px; height: 24px; left:770px; top:177px;}
+#s4f5 {position:absolute; width: 24px; height: 24px; left:770px; top:205px;}
+#s5f5 {position:absolute; width: 24px; height: 24px; left:770px; top:232px;}
+#s6f5 {position:absolute; width: 24px; height: 24px; left:770px; top:260px;}
+
+#s1f6 {position:absolute; width: 24px; height: 24px; left:820px; top:122px;}
+#s2f6 {position:absolute; width: 24px; height: 24px; left:820px; top:150px;}
+#s3f6 {position:absolute; width: 24px; height: 24px; left:820px; top:177px;}
+#s4f6 {position:absolute; width: 24px; height: 24px; left:820px; top:205px;}
+#s5f6 {position:absolute; width: 24px; height: 24px; left:820px; top:232px;}
+#s6f6 {position:absolute; width: 24px; height: 24px; left:820px; top:260px;}
+
+#s1f7 {position:absolute; width: 24px; height: 24px; left:873px; top:122px;}
+#s2f7 {position:absolute; width: 24px; height: 24px; left:873px; top:150px;}
+#s3f7 {position:absolute; width: 24px; height: 24px; left:873px; top:177px;}
+#s4f7 {position:absolute; width: 24px; height: 24px; left:873px; top:205px;}
+#s5f7 {position:absolute; width: 24px; height: 24px; left:873px; top:232px;}
+#s6f7 {position:absolute; width: 24px; height: 24px; left:873px; top:260px;}
+
+#s1f8 {position:absolute; width: 24px; height: 24px; left:926px; top:122px;}
+#s2f8 {position:absolute; width: 24px; height: 24px; left:926px; top:150px;}
+#s3f8 {position:absolute; width: 24px; height: 24px; left:926px; top:177px;}
+#s4f8 {position:absolute; width: 24px; height: 24px; left:926px; top:205px;}
+#s5f8 {position:absolute; width: 24px; height: 24px; left:926px; top:232px;}
+#s6f8 {position:absolute; width: 24px; height: 24px; left:926px; top:260px;}
+
+#s1f9 {position:absolute; width: 24px; height: 24px; left:976px; top:122px;}
+#s2f9 {position:absolute; width: 24px; height: 24px; left:976px; top:150px;}
+#s3f9 {position:absolute; width: 24px; height: 24px; left:976px; top:177px;}
+#s4f9 {position:absolute; width: 24px; height: 24px; left:976px; top:205px;}
+#s5f9 {position:absolute; width: 24px; height: 24px; left:976px; top:232px;}
+#s6f9 {position:absolute; width: 24px; height: 24px; left:976px; top:260px;}
+
+#s1f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:122px;}
+#s2f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:150px;}
+#s3f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:177px;}
+#s4f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:205px;}
+#s5f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:232px;}
+#s6f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:260px;}
+
+#s1f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:122px;}
+#s2f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:150px;}
+#s3f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:177px;}
+#s4f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:205px;}
+#s5f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:232px;}
+#s6f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:260px;}
+
+#s1f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:122px;}
+#s2f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:150px;}
+#s3f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:177px;}
+#s4f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:205px;}
+#s5f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:232px;}
+#s6f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:260px;}
+
+#s1f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:122px;}
+#s2f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:150px;}
+#s3f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:177px;}
+#s4f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:205px;}
+#s5f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:232px;}
+#s6f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:260px;}
+
+#s1f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:122px;}
+#s2f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:150px;}
+#s3f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:177px;}
+#s4f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:205px;}
+#s5f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:232px;}
+#s6f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:260px;}
+
+#s1f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:122px;}
+#s2f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:150px;}
+#s3f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:177px;}
+#s4f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:205px;}
+#s5f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:232px;}
+#s6f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:260px;}
+
+#s1f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:122px;}
+#s2f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:150px;}
+#s3f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:177px;}
+#s4f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:205px;}
+#s5f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:232px;}
+#s6f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:260px;}
+
+#s1f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:122px;}
+#s2f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:150px;}
+#s3f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:177px;}
+#s4f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:205px;}
+#s5f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:232px;}
+#s6f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:260px;}
+
+#s1f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:122px;}
+#s2f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:150px;}
+#s3f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:177px;}
+#s4f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:205px;}
+#s5f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:232px;}
+#s6f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:260px;}
+
+#s1f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:122px;}
+#s2f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:150px;}
+#s3f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:177px;}
+#s4f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:205px;}
+#s5f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:232px;}
+#s6f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:260px;}
+
+#s1f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:122px;}
+#s2f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:150px;}
+#s3f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:177px;}
+#s4f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:205px;}
+#s5f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:232px;}
+#s6f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:260px;}
+
+#s1f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:122px;}
+#s2f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:150px;}
+#s3f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:177px;}
+#s4f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:205px;}
+#s5f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:232px;}
+#s6f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:260px;}
+
+#s1f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:122px;}
+#s2f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:150px;}
+#s3f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:177px;}
+#s4f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:205px;}
+#s5f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:232px;}
+#s6f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:260px;}
+
+#s1f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:122px;}
+#s2f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:150px;}
+#s3f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:177px;}
+#s4f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:205px;}
+#s5f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:232px;}
+#s6f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:260px;}
+
+#s1f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:122px;}
+#s2f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:150px;}
+#s3f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:177px;}
+#s4f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:205px;}
+#s5f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:232px;}
+#s6f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:260px;}
+
+
+#fret1 {position:absolute; width: 24px; height: 24px; left:570px; top:300px;}
+#fret2 {position:absolute; width: 24px; height: 24px; left:618px; top:300px;}
+#fret3 {position:absolute; width: 24px; height: 24px; left:666px; top:300px;}
+#fret4 {position:absolute; width: 24px; height: 24px; left:720px; top:300px;}
+#fret5 {position:absolute; width: 24px; height: 24px; left:770px; top:300px;}
+#fret6 {position:absolute; width: 24px; height: 24px; left:820px; top:300px;}
+#fret7 {position:absolute; width: 24px; height: 24px; left:873px; top:300px;}
+#fret8 {position:absolute; width: 24px; height: 24px; left:926px; top:300px;}
+#fret9 {position:absolute; width: 24px; height: 24px; left:976px; top:300px;}
+#fret10 {position:absolute; width: 24px; height: 24px; left:1028px; top:300px;}
+#fret11 {position:absolute; width: 24px; height: 24px; left:1080px; top:300px;}
+#fret12 {position:absolute; width: 24px; height: 24px; left:1130px; top:300px;}
+#fret13 {position:absolute; width: 24px; height: 24px; left:1180px; top:300px;}
+#fret14 {position:absolute; width: 24px; height: 24px; left:1233px; top:300px;}
+#fret15 {position:absolute; width: 24px; height: 24px; left:1283px; top:300px;}
+#fret16 {position:absolute; width: 24px; height: 24px; left:1335px; top:300px;}
+#fret17 {position:absolute; width: 24px; height: 24px; left:1385px; top:300px;}
+#fret18 {position:absolute; width: 24px; height: 24px; left:1438px; top:300px;}
+#fret19 {position:absolute; width: 24px; height: 24px; left:1488px; top:300px;}
+#fret20 {position:absolute; width: 24px; height: 24px; left:1538px; top:300px;}
+#fret21 {position:absolute; width: 24px; height: 24px; left:1590px; top:300px;}
+#fret22 {position:absolute; width: 24px; height: 24px; left:1643px; top:300px;}
+#fret23 {position:absolute; width: 24px; height: 24px; left:1695px; top:300px;}
+#fret24 {position:absolute; width: 24px; height: 24px; left:1748px; top:300px;}
+
+
+#master {position:absolute; left:570px; top:340px;}
+		</style>
+		<script>
+var sharporflat = 'sharp';
+
+function togglemeboxes(master,group){
+    var cbarray = document.getElementsByName(group);
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+}	
+
+function toggleallboxes(master){
+    var cbarray = document.getElementsByClassName('fretboard');
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+    
+    cbarray = document.getElementsByClassName('master');
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+
+    cbarray = document.getElementsByClassName('fret');
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+ 
+}	
+
+function togglesharpflat(master) {
+	var thislabel;
+    var cbarray;
+    cbarray = document.getElementsByName('note_cs[]');
+    for(var i = 0; i < cbarray.length; i++){
+        thislabel = cbarray[i].value;
+        document.getElementById(thislabel).innerHTML = 'Db';
+
+    }
+
+	if (master.checked) {
+		document.getElementById('label_mx').innerHTML = '#';
+	// C#
+		document.getElementById('labelcs').innerHTML = 'C#';
+    	cbarray = document.getElementsByName('note_cs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'C#';
+	
+	    }	
+	// D#
+		document.getElementById('labelds').innerHTML = 'D#';
+    	cbarray = document.getElementsByName('note_ds[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'D#';
+	
+	    }	
+	// F#
+		document.getElementById('labelfs').innerHTML = 'F#';
+    	cbarray = document.getElementsByName('note_fs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'F#';
+	
+	    }	
+	// G#
+		document.getElementById('labelgs').innerHTML = 'G#';
+    	cbarray = document.getElementsByName('note_gs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'G#';
+	
+	    }	
+	// A#
+		document.getElementById('labelas').innerHTML = 'A#';
+    	cbarray = document.getElementsByName('note_as[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'A#';
+	
+	    }	
+
+	}	else {
+		document.getElementById('label_mx').innerHTML = 'b';
+	// Db
+		document.getElementById('labelcs').innerHTML = 'Db';
+    	cbarray = document.getElementsByName('note_cs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Db';
+	
+	    }	
+	// Eb
+		document.getElementById('labelds').innerHTML = 'Eb';
+    	cbarray = document.getElementsByName('note_ds[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Eb';
+	
+	    }	
+	// Gb
+		document.getElementById('labelfs').innerHTML = 'Gb';
+    	cbarray = document.getElementsByName('note_fs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Gb';
+	
+	    }	
+	// Ab
+		document.getElementById('labelgs').innerHTML = 'Ab';
+    	cbarray = document.getElementsByName('note_gs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Ab';
+	
+	    }	
+	// Bb
+		document.getElementById('labelas').innerHTML = 'Bb';
+    	cbarray = document.getElementsByName('note_as[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Bb';
+	
+	    }	
+
+	}
+}
+
+function togglethisfret(master, fretnum) {
+	var line1 = 'dot1' + fretnum;
+	var line2 = 'dot2' + fretnum;
+	var line3 = 'dot3' + fretnum;
+	var line4 = 'dot4' + fretnum;
+	var line5 = 'dot5' + fretnum;
+	var line6 = 'dot6' + fretnum;
+
+	document.getElementById(line1).checked = master.checked;
+	document.getElementById(line2).checked = master.checked;
+	document.getElementById(line3).checked = master.checked;
+	document.getElementById(line4).checked = master.checked;
+	document.getElementById(line5).checked = master.checked;
+	document.getElementById(line6).checked = master.checked;
+}
+</script>
+	</head>
+	<body>
+		<img src="guitar-fretboard.png" id="fretboard">
+		<div id='s1f0'><input class='fretboard' type='checkbox' name='note_e[]' value='label10' id='dot10'/><label id='label10' for='dot10'>E</label></div>
+		<div id='s2f0'><input class='fretboard' type='checkbox' name='note_b[]' value='label20' id='dot20'/><label id='label20' for='dot20'>B</label></div>
+		<div id='s3f0'><input class='fretboard' type='checkbox' name='note_g[]' value='label30' id='dot30'/><label id='label30' for='dot30'>G</label></div>
+		<div id='s4f0'><input class='fretboard' type='checkbox' name='note_d[]' value='label40' id='dot40'/><label id='label40' for='dot40'>D</label></div>
+		<div id='s5f0'><input class='fretboard' type='checkbox' name='note_a[]' value='label50' id='dot50'/><label id='label50' for='dot50'>A</label></div>
+		<div id='s6f0'><input class='fretboard' type='checkbox' name='note_e[]' value='label60' id='dot60'/><label id='label60' for='dot60'>E</label></div>
+		
+		<div id='s1f1'><input class='fretboard' type='checkbox' name='note_f[]'  value='label11' id='dot11'/><label id='label11' for='dot11'>F</label></div>
+		<div id='s2f1'><input class='fretboard' type='checkbox' name='note_c[]'  value='label21' id='dot21'/><label id='label21' for='dot21'>C</label></div>
+		<div id='s3f1'><input class='fretboard' type='checkbox' name='note_gs[]' value='label31' id='dot31'/><label id='label31' for='dot31'>G#</label></div>
+		<div id='s4f1'><input class='fretboard' type='checkbox' name='note_ds[]' value='label41' id='dot41'/><label id='label41' for='dot41'>D#</label></div>
+		<div id='s5f1'><input class='fretboard' type='checkbox' name='note_as[]' value='label51' id='dot51'/><label id='label51' for='dot51'>A#</label></div>
+		<div id='s6f1'><input class='fretboard' type='checkbox' name='note_f[]'  value='label61' id='dot61'/><label id='label61' for='dot61'>F</label></div>
+
+		<div id='s1f2'><input class='fretboard' type='checkbox' name='note_fs[]' value='label12' id='dot12'/><label id='label12' for='dot12'>F#</label></div>
+		<div id='s2f2'><input class='fretboard' type='checkbox' name='note_cs[]' value='label22' id='dot22'/><label id='label22' for='dot22'>C#</label></div>
+		<div id='s3f2'><input class='fretboard' type='checkbox' name='note_a[]'  value='label32' id='dot32'/><label id='label32' for='dot32'>A</label></div>
+		<div id='s4f2'><input class='fretboard' type='checkbox' name='note_e[]'  value='label42' id='dot42'/><label id='label42' for='dot42'>E</label></div>
+		<div id='s5f2'><input class='fretboard' type='checkbox' name='note_b[]'  value='label52' id='dot52'/><label id='label52' for='dot52'>B</label></div>
+		<div id='s6f2'><input class='fretboard' type='checkbox' name='note_fs[]' value='label62' id='dot62'/><label id='label62' for='dot62'>F#</label></div>
+
+		<div id='s1f3'><input class='fretboard' type='checkbox' name='note_g[]'  value='label13' id='dot13'/><label id='label13' for='dot13'>G</label></div>
+		<div id='s2f3'><input class='fretboard' type='checkbox' name='note_d[]'  value='label23' id='dot23'/><label id='label23' for='dot23'>D</label></div>
+		<div id='s3f3'><input class='fretboard' type='checkbox' name='note_as[]' value='label33' id='dot33'/><label id='label33' for='dot33'>A#</label></div>
+		<div id='s4f3'><input class='fretboard' type='checkbox' name='note_f[]'  value='label43' id='dot43'/><label id='label43' for='dot43'>F</label></div>
+		<div id='s5f3'><input class='fretboard' type='checkbox' name='note_c[]'  value='label53' id='dot53'/><label id='label53' for='dot53'>C</label></div>
+		<div id='s6f3'><input class='fretboard' type='checkbox' name='note_g[]'  value='label63' id='dot63'/><label id='label63' for='dot63'>G</label></div>
+
+		<div id='s1f4'><input class='fretboard' type='checkbox' name='note_gs[]' value='label14' id='dot14'/><label id='label14' for='dot14'>G#</label></div>
+		<div id='s2f4'><input class='fretboard' type='checkbox' name='note_ds[]' value='label24' id='dot24'/><label id='label24' for='dot24'>D#</label></div>
+		<div id='s3f4'><input class='fretboard' type='checkbox' name='note_b[]'  value='label34' id='dot34'/><label id='label34' for='dot34'>B</label></div>
+		<div id='s4f4'><input class='fretboard' type='checkbox' name='note_fs[]' value='label44' id='dot44'/><label id='label44' for='dot44'>F#</label></div>
+		<div id='s5f4'><input class='fretboard' type='checkbox' name='note_cs[]' value='label54' id='dot54'/><label id='label54' for='dot54'>C#</label></div>
+		<div id='s6f4'><input class='fretboard' type='checkbox' name='note_gs[]' value='label64' id='dot64'/><label id='label64' for='dot64'>G#</label></div>
+
+		<div id='s1f5'><input class='fretboard' type='checkbox' name='note_a[]' value='label15' id='dot15'/><label id='label15' for='dot15'>A</label></div>
+		<div id='s2f5'><input class='fretboard' type='checkbox' name='note_e[]' value='label25' id='dot25'/><label id='label25' for='dot25'>E</label></div>
+		<div id='s3f5'><input class='fretboard' type='checkbox' name='note_c[]' value='label35' id='dot35'/><label id='label35' for='dot35'>C</label></div>
+		<div id='s4f5'><input class='fretboard' type='checkbox' name='note_g[]' value='label45' id='dot45'/><label id='label45' for='dot45'>G</label></div>
+		<div id='s5f5'><input class='fretboard' type='checkbox' name='note_d[]' value='label55' id='dot55'/><label id='label55' for='dot55'>D</label></div>
+		<div id='s6f5'><input class='fretboard' type='checkbox' name='note_a[]' value='label65' id='dot65'/><label id='label65' for='dot65'>A</label></div>
+
+		<div id='s1f6'><input class='fretboard' type='checkbox' name='note_as[]' value='label16' id='dot16'/><label id='label16' for='dot16'>A#</label></div>
+		<div id='s2f6'><input class='fretboard' type='checkbox' name='note_f[]'  value='label26' id='dot26'/><label id='label26' for='dot26'>F</label></div>
+		<div id='s3f6'><input class='fretboard' type='checkbox' name='note_cs[]' value='label36' id='dot36'/><label id='label36' for='dot36'>C#</label></div>
+		<div id='s4f6'><input class='fretboard' type='checkbox' name='note_gs[]' value='label46' id='dot46'/><label id='label46' for='dot46'>G#</label></div>
+		<div id='s5f6'><input class='fretboard' type='checkbox' name='note_ds[]' value='label56' id='dot56'/><label id='label56' for='dot56'>D#</label></div>
+		<div id='s6f6'><input class='fretboard' type='checkbox' name='note_as[]' value='label66' id='dot66'/><label id='label66' for='dot66'>A#</label></div>
+
+		<div id='s1f7'><input class='fretboard' type='checkbox' name='note_b[]'  value='label17' id='dot17'/><label id='label17' for='dot17'>B</label></div>
+		<div id='s2f7'><input class='fretboard' type='checkbox' name='note_fs[]' value='label27' id='dot27'/><label id='label27' for='dot27'>F#</label></div>
+		<div id='s3f7'><input class='fretboard' type='checkbox' name='note_d[]'  value='label37' id='dot37'/><label id='label37' for='dot37'>D</label></div>
+		<div id='s4f7'><input class='fretboard' type='checkbox' name='note_a[]'  value='label47' id='dot47'/><label id='label47' for='dot47'>A</label></div>
+		<div id='s5f7'><input class='fretboard' type='checkbox' name='note_e[]'  value='label57' id='dot57'/><label id='label57' for='dot57'>E</label></div>
+		<div id='s6f7'><input class='fretboard' type='checkbox' name='note_b[]'  value='label67' id='dot67'/><label id='label67' for='dot67'>B</label></div>
+
+		<div id='s1f8'><input class='fretboard' type='checkbox' name='note_c[]'  value='label18' id='dot18'/><label id='label18' for='dot18'>C</label></div>
+		<div id='s2f8'><input class='fretboard' type='checkbox' name='note_g[]'  value='label28' id='dot28'/><label id='label28' for='dot28'>G</label></div>
+		<div id='s3f8'><input class='fretboard' type='checkbox' name='note_ds[]' value='label38' id='dot38'/><label id='label38' for='dot38'>D#</label></div>
+		<div id='s4f8'><input class='fretboard' type='checkbox' name='note_as[]' value='label48' id='dot48'/><label id='label48' for='dot48'>A#</label></div>
+		<div id='s5f8'><input class='fretboard' type='checkbox' name='note_f[]'  value='label58' id='dot58'/><label id='label58' for='dot58'>F</label></div>
+		<div id='s6f8'><input class='fretboard' type='checkbox' name='note_c[]'  value='label68' id='dot68'/><label id='label68' for='dot68'>C</label></div>
+
+		<div id='s1f9'><input class='fretboard' type='checkbox' name='note_cs[]' value='label19' id='dot19'/><label id='label19' for='dot19'>C#</label></div>
+		<div id='s2f9'><input class='fretboard' type='checkbox' name='note_gs[]' value='label29' id='dot29'/><label id='label29' for='dot29'>G#</label></div>
+		<div id='s3f9'><input class='fretboard' type='checkbox' name='note_e[]'  value='label39' id='dot39'/><label id='label39' for='dot39'>E</label></div>
+		<div id='s4f9'><input class='fretboard' type='checkbox' name='note_b[]'  value='label49' id='dot49'/><label id='label49' for='dot49'>B</label></div>
+		<div id='s5f9'><input class='fretboard' type='checkbox' name='note_fs[]' value='label59' id='dot59'/><label id='label59' for='dot59'>F#</label></div>
+		<div id='s6f9'><input class='fretboard' type='checkbox' name='note_cs[]' value='label69' id='dot69'/><label id='label69' for='dot69'>C#</label></div>
+
+		<div id='s1f10'><input class='fretboard' type='checkbox' name='note_d[]' value='label110' id='dot110'/><label id='label110' for='dot110'>D</label></div>
+		<div id='s2f10'><input class='fretboard' type='checkbox' name='note_a[]' value='label210' id='dot210'/><label id='label210' for='dot210'>A</label></div>
+		<div id='s3f10'><input class='fretboard' type='checkbox' name='note_f[]' value='label310' id='dot310'/><label id='label310' for='dot310'>F</label></div>
+		<div id='s4f10'><input class='fretboard' type='checkbox' name='note_c[]' value='label410' id='dot410'/><label id='label410' for='dot410'>C</label></div>
+		<div id='s5f10'><input class='fretboard' type='checkbox' name='note_g[]' value='label510' id='dot510'/><label id='label510' for='dot510'>G</label></div>
+		<div id='s6f10'><input class='fretboard' type='checkbox' name='note_d[]' value='label610' id='dot610'/><label id='label610' for='dot610'>D</label></div>
+
+		<div id='s1f11'><input class='fretboard' type='checkbox' name='note_ds[]' value='label111' id='dot111'/><label id='label111' for='dot111'>D#</label></div>
+		<div id='s2f11'><input class='fretboard' type='checkbox' name='note_as[]' value='label211' id='dot211'/><label id='label211' for='dot211'>A#</label></div>
+		<div id='s3f11'><input class='fretboard' type='checkbox' name='note_fs[]' value='label311' id='dot311'/><label id='label311' for='dot311'>F#</label></div>
+		<div id='s4f11'><input class='fretboard' type='checkbox' name='note_cs[]' value='label411' id='dot411'/><label id='label411' for='dot411'>C#</label></div>
+		<div id='s5f11'><input class='fretboard' type='checkbox' name='note_gs[]' value='label511' id='dot511'/><label id='label511' for='dot511'>G#</label></div>
+		<div id='s6f11'><input class='fretboard' type='checkbox' name='note_ds[]' value='label611' id='dot611'/><label id='label611' for='dot611'>D#</label></div>
+
+		<div id='s1f12'><input class='fretboard' type='checkbox' name='note_e[]' value='label112' id='dot112'/><label id='label112' for='dot112'>E</label></div>
+		<div id='s2f12'><input class='fretboard' type='checkbox' name='note_b[]' value='label212' id='dot212'/><label id='label212' for='dot212'>B</label></div>
+		<div id='s3f12'><input class='fretboard' type='checkbox' name='note_g[]' value='label312' id='dot312'/><label id='label312' for='dot312'>G</label></div>
+		<div id='s4f12'><input class='fretboard' type='checkbox' name='note_d[]' value='label412' id='dot412'/><label id='label412' for='dot412'>D</label></div>
+		<div id='s5f12'><input class='fretboard' type='checkbox' name='note_a[]' value='label512' id='dot512'/><label id='label512' for='dot512'>A</label></div>
+		<div id='s6f12'><input class='fretboard' type='checkbox' name='note_e[]' value='label612' id='dot612'/><label id='label612' for='dot612'>E</label></div>
+
+		<div id='s1f13'><input class='fretboard' type='checkbox' name='note_f[]'  value='label113' id='dot113'/><label id='label113' for='dot113'>F</label></div>
+		<div id='s2f13'><input class='fretboard' type='checkbox' name='note_c[]'  value='label213' id='dot213'/><label id='label213' for='dot213'>C</label></div>
+		<div id='s3f13'><input class='fretboard' type='checkbox' name='note_gs[]' value='label313' id='dot313'/><label id='label313' for='dot313'>G#</label></div>
+		<div id='s4f13'><input class='fretboard' type='checkbox' name='note_ds[]' value='label413' id='dot413'/><label id='label413' for='dot413'>D#</label></div>
+		<div id='s5f13'><input class='fretboard' type='checkbox' name='note_as[]' value='label513' id='dot513'/><label id='label513' for='dot513'>A#</label></div>
+		<div id='s6f13'><input class='fretboard' type='checkbox' name='note_f[]'  value='label613' id='dot613'/><label id='label613' for='dot613'>F</label></div>
+
+		<div id='s1f14'><input class='fretboard' type='checkbox' name='note_fs[]' value='label114' id='dot114'/><label id='label114' for='dot114'>F#</label></div>
+		<div id='s2f14'><input class='fretboard' type='checkbox' name='note_cs[]' value='label214' id='dot214'/><label id='label214' for='dot214'>C#</label></div>
+		<div id='s3f14'><input class='fretboard' type='checkbox' name='note_a[]'  value='label314' id='dot314'/><label id='label314' for='dot314'>A</label></div>
+		<div id='s4f14'><input class='fretboard' type='checkbox' name='note_e[]'  value='label414' id='dot414'/><label id='label414' for='dot414'>E</label></div>
+		<div id='s5f14'><input class='fretboard' type='checkbox' name='note_b[]'  value='label514' id='dot514'/><label id='label514' for='dot514'>B</label></div>
+		<div id='s6f14'><input class='fretboard' type='checkbox' name='note_fs[]' value='label614' id='dot614'/><label id='label614' for='dot614'>F#</label></div>
+
+		<div id='s1f15'><input class='fretboard' type='checkbox' name='note_g[]'  value='label115' id='dot115'/><label id='label115' for='dot115'>G</label></div>
+		<div id='s2f15'><input class='fretboard' type='checkbox' name='note_d[]'  value='label215' id='dot215'/><label id='label215' for='dot215'>D</label></div>
+		<div id='s3f15'><input class='fretboard' type='checkbox' name='note_as[]' value='label315' id='dot315'/><label id='label315' for='dot315'>A#</label></div>
+		<div id='s4f15'><input class='fretboard' type='checkbox' name='note_f[]'  value='label415' id='dot415'/><label id='label415' for='dot415'>F</label></div>
+		<div id='s5f15'><input class='fretboard' type='checkbox' name='note_c[]'  value='label515' id='dot515'/><label id='label515' for='dot515'>C</label></div>
+		<div id='s6f15'><input class='fretboard' type='checkbox' name='note_g[]'  value='label615' id='dot615'/><label id='label615' for='dot615'>G</label></div>
+
+		<div id='s1f16'><input class='fretboard' type='checkbox' name='note_gs[]' value='label116' id='dot116'/><label id='label116' for='dot116'>G#</label></div>
+		<div id='s2f16'><input class='fretboard' type='checkbox' name='note_ds[]' value='label216' id='dot216'/><label id='label216' for='dot216'>D#</label></div>
+		<div id='s3f16'><input class='fretboard' type='checkbox' name='note_b[]'  value='label316' id='dot316'/><label id='label316' for='dot316'>B</label></div>
+		<div id='s4f16'><input class='fretboard' type='checkbox' name='note_fs[]' value='label416' id='dot416'/><label id='label416' for='dot416'>F#</label></div>
+		<div id='s5f16'><input class='fretboard' type='checkbox' name='note_cs[]' value='label516' id='dot516'/><label id='label516' for='dot516'>C#</label></div>
+		<div id='s6f16'><input class='fretboard' type='checkbox' name='note_gs[]' value='label616' id='dot616'/><label id='label616' for='dot616'>G#</label></div>
+
+		<div id='s1f17'><input class='fretboard' type='checkbox' name='note_a[]' value='label117' id='dot117'/><label id='label117' for='dot117'>A</label></div>
+		<div id='s2f17'><input class='fretboard' type='checkbox' name='note_e[]' value='label217' id='dot217'/><label id='label217' for='dot217'>E</label></div>
+		<div id='s3f17'><input class='fretboard' type='checkbox' name='note_c[]' value='label317' id='dot317'/><label id='label317' for='dot317'>C</label></div>
+		<div id='s4f17'><input class='fretboard' type='checkbox' name='note_g[]' value='label417' id='dot417'/><label id='label417' for='dot417'>G</label></div>
+		<div id='s5f17'><input class='fretboard' type='checkbox' name='note_d[]' value='label517' id='dot517'/><label id='label517' for='dot517'>D</label></div>
+		<div id='s6f17'><input class='fretboard' type='checkbox' name='note_a[]' value='label617' id='dot617'/><label id='label617' for='dot617'>A</label></div>
+
+		<div id='s1f18'><input class='fretboard' type='checkbox' name='note_as[]' value='label118' id='dot118'/><label id='label118' for='dot118'>A#</label></div>
+		<div id='s2f18'><input class='fretboard' type='checkbox' name='note_f[]'  value='label218' id='dot218'/><label id='label218' for='dot218'>F</label></div>
+		<div id='s3f18'><input class='fretboard' type='checkbox' name='note_cs[]' value='label318' id='dot318'/><label id='label318' for='dot318'>C#</label></div>
+		<div id='s4f18'><input class='fretboard' type='checkbox' name='note_gs[]' value='label418' id='dot418'/><label id='label418' for='dot418'>G#</label></div>
+		<div id='s5f18'><input class='fretboard' type='checkbox' name='note_ds[]' value='label518' id='dot518'/><label id='label518' for='dot518'>D#</label></div>
+		<div id='s6f18'><input class='fretboard' type='checkbox' name='note_as[]' value='label618' id='dot618'/><label id='label618' for='dot618'>A#</label></div>
+
+		<div id='s1f19'><input class='fretboard' type='checkbox' name='note_b[]'  value='label119' id='dot119'/><label id='label119' for='dot119'>B</label></div>
+		<div id='s2f19'><input class='fretboard' type='checkbox' name='note_fs[]' value='label219' id='dot219'/><label id='label219' for='dot219'>F#</label></div>
+		<div id='s3f19'><input class='fretboard' type='checkbox' name='note_d[]'  value='label319' id='dot319'/><label id='label319' for='dot319'>D</label></div>
+		<div id='s4f19'><input class='fretboard' type='checkbox' name='note_a[]'  value='label419' id='dot419'/><label id='label419' for='dot419'>A</label></div>
+		<div id='s5f19'><input class='fretboard' type='checkbox' name='note_e[]'  value='label519' id='dot519'/><label id='label519' for='dot519'>E</label></div>
+		<div id='s6f19'><input class='fretboard' type='checkbox' name='note_b[]'  value='label619' id='dot619'/><label id='label619' for='dot619'>B</label></div>
+
+		<div id='s1f20'><input class='fretboard' type='checkbox' name='note_c[]'  value='label18' id='dot120'/><label id='label120' for='dot120'>C</label></div>
+		<div id='s2f20'><input class='fretboard' type='checkbox' name='note_g[]'  value='label28' id='dot220'/><label id='label220' for='dot220'>G</label></div>
+		<div id='s3f20'><input class='fretboard' type='checkbox' name='note_ds[]' value='label38' id='dot320'/><label id='label320' for='dot320'>D#</label></div>
+		<div id='s4f20'><input class='fretboard' type='checkbox' name='note_as[]' value='label48' id='dot420'/><label id='label420' for='dot420'>A#</label></div>
+		<div id='s5f20'><input class='fretboard' type='checkbox' name='note_f[]'  value='label58' id='dot520'/><label id='label520' for='dot520'>F</label></div>
+		<div id='s6f20'><input class='fretboard' type='checkbox' name='note_c[]'  value='label68' id='dot620'/><label id='label620' for='dot620'>C</label></div>
+
+		<div id='s1f21'><input class='fretboard' type='checkbox' name='note_cs[]' value='label121' id='dot121'/><label id='label121' for='dot121'>C#</label></div>
+		<div id='s2f21'><input class='fretboard' type='checkbox' name='note_gs[]' value='label221' id='dot221'/><label id='label221' for='dot221'>G#</label></div>
+		<div id='s3f21'><input class='fretboard' type='checkbox' name='note_e[]'  value='label321' id='dot321'/><label id='label321' for='dot321'>E</label></div>
+		<div id='s4f21'><input class='fretboard' type='checkbox' name='note_b[]'  value='label421' id='dot421'/><label id='label421' for='dot421'>B</label></div>
+		<div id='s5f21'><input class='fretboard' type='checkbox' name='note_fs[]' value='label521' id='dot521'/><label id='label521' for='dot521'>F#</label></div>
+		<div id='s6f21'><input class='fretboard' type='checkbox' name='note_cs[]' value='label621' id='dot621'/><label id='label621' for='dot621'>C#</label></div>
+
+		<div id='s1f22'><input class='fretboard' type='checkbox' name='note_d[]' value='label122' id='dot122'/><label id='label122' for='dot122'>D</label></div>
+		<div id='s2f22'><input class='fretboard' type='checkbox' name='note_a[]' value='label222' id='dot222'/><label id='label222' for='dot222'>A</label></div>
+		<div id='s3f22'><input class='fretboard' type='checkbox' name='note_f[]' value='label322' id='dot322'/><label id='label322' for='dot322'>F</label></div>
+		<div id='s4f22'><input class='fretboard' type='checkbox' name='note_c[]' value='label422' id='dot422'/><label id='label422' for='dot422'>C</label></div>
+		<div id='s5f22'><input class='fretboard' type='checkbox' name='note_g[]' value='label522' id='dot522'/><label id='label522' for='dot522'>G</label></div>
+		<div id='s6f22'><input class='fretboard' type='checkbox' name='note_d[]' value='label622' id='dot622'/><label id='label622' for='dot622'>D</label></div>
+
+		<div id='s1f23'><input class='fretboard' type='checkbox' name='note_ds[]' value='label123' id='dot123'/><label id='label123' for='dot123'>D#</label></div>
+		<div id='s2f23'><input class='fretboard' type='checkbox' name='note_as[]' value='label223' id='dot223'/><label id='label223' for='dot223'>A#</label></div>
+		<div id='s3f23'><input class='fretboard' type='checkbox' name='note_fs[]' value='label323' id='dot323'/><label id='label323' for='dot323'>F#</label></div>
+		<div id='s4f23'><input class='fretboard' type='checkbox' name='note_cs[]' value='label423' id='dot423'/><label id='label423' for='dot423'>C#</label></div>
+		<div id='s5f23'><input class='fretboard' type='checkbox' name='note_gs[]' value='label523' id='dot523'/><label id='label523' for='dot523'>G#</label></div>
+		<div id='s6f23'><input class='fretboard' type='checkbox' name='note_ds[]' value='label623' id='dot623'/><label id='label623' for='dot623'>D#</label></div>
+
+		<div id='s1f24'><input class='fretboard' type='checkbox' name='note_e[]' value='label124' id='dot124'/><label id='label124' for='dot124'>E</label></div>
+		<div id='s2f24'><input class='fretboard' type='checkbox' name='note_b[]' value='label224' id='dot224'/><label id='label224' for='dot224'>B</label></div>
+		<div id='s3f24'><input class='fretboard' type='checkbox' name='note_g[]' value='label324' id='dot324'/><label id='label324' for='dot324'>G</label></div>
+		<div id='s4f24'><input class='fretboard' type='checkbox' name='note_d[]' value='label424' id='dot424'/><label id='label424' for='dot424'>D</label></div>
+		<div id='s5f24'><input class='fretboard' type='checkbox' name='note_a[]' value='label524' id='dot524'/><label id='label524' for='dot524'>A</label></div>
+		<div id='s6f24'><input class='fretboard' type='checkbox' name='note_e[]' value='label624' id='dot624'/><label id='label624' for='dot624'>E</label></div>
+
+
+
+		<div id='fret1'><input class='fret' type='checkbox' name='fret[]' value='1' id='f1' onchange="togglethisfret(this,1)"/><label for='f1'>1</label></div>
+		<div id='fret2'><input class='fret' type='checkbox' name='fret[]' value='2' id='f2' onchange="togglethisfret(this,2)"/><label for='f2'>2</label></div>
+		<div id='fret3'><input class='fret' type='checkbox' name='fret[]' value='3' id='f3' onchange="togglethisfret(this,3)"/><label for='f3'>3</label></div>
+		<div id='fret4'><input class='fret' type='checkbox' name='fret[]' value='4' id='f4' onchange="togglethisfret(this,4)"/><label for='f4'>4</label></div>
+		<div id='fret5'><input class='fret' type='checkbox' name='fret[]' value='5' id='f5' onchange="togglethisfret(this,5)"/><label for='f5'>5</label></div>
+		<div id='fret6'><input class='fret' type='checkbox' name='fret[]' value='6' id='f6' onchange="togglethisfret(this,6)"/><label for='f6'>6</label></div>
+		<div id='fret7'><input class='fret' type='checkbox' name='fret[]' value='7' id='f7' onchange="togglethisfret(this,7)"/><label for='f7'>7</label></div>
+		<div id='fret8'><input class='fret' type='checkbox' name='fret[]' value='8' id='f8' onchange="togglethisfret(this,8)"/><label for='f8'>8</label></div>
+		<div id='fret9'><input class='fret' type='checkbox' name='fret[]' value='9' id='f9' onchange="togglethisfret(this,9)"/><label for='f9'>9</label></div>
+		<div id='fret10'><input class='fret' type='checkbox' name='fret[]' value='10' id='f10' onchange="togglethisfret(this,10)"/><label for='f10'>10</label></div>
+		<div id='fret11'><input class='fret' type='checkbox' name='fret[]' value='11' id='f11' onchange="togglethisfret(this,11)"/><label for='f11'>11</label></div>
+		<div id='fret12'><input class='fret' type='checkbox' name='fret[]' value='12' id='f12' onchange="togglethisfret(this,12)"/><label for='f12'>12</label></div>
+		<div id='fret13'><input class='fret' type='checkbox' name='fret[]' value='13' id='f13' onchange="togglethisfret(this,13)"/><label for='f13'>13</label></div>
+		<div id='fret14'><input class='fret' type='checkbox' name='fret[]' value='14' id='f14' onchange="togglethisfret(this,14)"/><label for='f14'>14</label></div>
+		<div id='fret15'><input class='fret' type='checkbox' name='fret[]' value='15' id='f15' onchange="togglethisfret(this,15)"/><label for='f15'>15</label></div>
+		<div id='fret16'><input class='fret' type='checkbox' name='fret[]' value='16' id='f16' onchange="togglethisfret(this,16)"/><label for='f16'>16</label></div>
+		<div id='fret17'><input class='fret' type='checkbox' name='fret[]' value='17' id='f17' onchange="togglethisfret(this,17)"/><label for='f17'>17</label></div>
+		<div id='fret18'><input class='fret' type='checkbox' name='fret[]' value='18' id='f18' onchange="togglethisfret(this,18)"/><label for='f18'>18</label></div>
+		<div id='fret19'><input class='fret' type='checkbox' name='fret[]' value='19' id='f19' onchange="togglethisfret(this,19)"/><label for='f19'>19</label></div>
+		<div id='fret20'><input class='fret' type='checkbox' name='fret[]' value='20' id='f20' onchange="togglethisfret(this,20)"/><label for='f20'>20</label></div>
+		<div id='fret21'><input class='fret' type='checkbox' name='fret[]' value='21' id='f21' onchange="togglethisfret(this,21)"/><label for='f21'>21</label></div>
+		<div id='fret22'><input class='fret' type='checkbox' name='fret[]' value='22' id='f22' onchange="togglethisfret(this,22)"/><label for='f22'>22</label></div>
+		<div id='fret23'><input class='fret' type='checkbox' name='fret[]' value='23' id='f23' onchange="togglethisfret(this,23)"/><label for='f23'>23</label></div>
+		<div id='fret24'><input class='fret' type='checkbox' name='fret[]' value='24' id='f24' onchange="togglethisfret(this,24)"/><label for='f24'>24</label></div>
+
+		<div id="master">
+			<input type='checkbox' class='master' name='master[]' value='o' id='mo' onchange="toggleallboxes(this)"/><label for='mo'>All</label>
+			<input type='checkbox' class='master' name='master[]' value='c' id='mc' onchange="togglemeboxes(this,'note_c[]')"/><label for='mc'>C</label>
+			<input type='checkbox' class='master' name='master[]' value='cs' id='mcs' onchange="togglemeboxes(this,'note_cs[]')"/><label id='labelcs' for='mcs'>C#</label>
+			<input type='checkbox' class='master' name='master[]' value='d' id='md' onchange="togglemeboxes(this,'note_d[]')"/><label for='md'>D</label>
+			<input type='checkbox' class='master' name='master[]' value='ds' id='mds' onchange="togglemeboxes(this,'note_ds[]')"/><label id='labelds' for='mds'>D#</label>
+			<input type='checkbox' class='master' name='master[]' value='e' id='me' onchange="togglemeboxes(this,'note_e[]')"/><label for='me'>E</label>
+			<input type='checkbox' class='master' name='master[]' value='f' id='mf' onchange="togglemeboxes(this,'note_f[]')"/><label for='mf'>F</label>
+			<input type='checkbox' class='master' name='master[]' value='fs' id='mfs' onchange="togglemeboxes(this,'note_fs[]')"/><label id='labelfs' for='mfs'>F#</label>
+			<input type='checkbox' class='master' name='master[]' value='g' id='mg' onchange="togglemeboxes(this,'note_g[]')"/><label for='mg'>G</label>
+			<input type='checkbox' class='master' name='master[]' value='gs' id='mgs' onchange="togglemeboxes(this,'note_gs[]')"/><label id='labelgs' for='mgs'>G#</label>
+			<input type='checkbox' class='master' name='master[]' value='a' id='ma' onchange="togglemeboxes(this,'note_a[]')"/><label for='ma'>A</label>
+			<input type='checkbox' class='master' name='master[]' value='as' id='mas' onchange="togglemeboxes(this,'note_as[]')"/><label id='labelas' for='mas'>A#</label>
+			<input type='checkbox' class='master' name='master[]' value='b' id='mb' onchange="togglemeboxes(this,'note_b[]')"/><label for='mb'>B</label>
+			<input type='checkbox' class='sharpflat' name='master[]' value='x' id='mx' onChange="togglesharpflat(this)" checked/><label id='label_mx' for='mx'>#</label>
+		</div>
+		<img src='https://licensebuttons.net/l/by-sa/3.0/88x31.png'>
+	</body>
+</html>

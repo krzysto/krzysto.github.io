@@ -1,0 +1,699 @@
+<html>
+	<head>
+		<style>
+
+#fretboard {position:absolute; left:65px; top:65px;}
+
+input[type=checkbox] {
+display:none;
+}
+
+p { white-space: nowrap; }
+.fretboard[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#0080ff;
+text-align:center;
+font-size:13px;
+color:transparent;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.fretboard[type=checkbox]:checked + label
+{
+background: #0080FF;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.fretboard[type=checkbox]:indeterminate + label
+{
+background: #ec0c0c;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#ec0c0c;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+.master[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#0080ff;
+text-align:center;
+font-size:13px;
+color:#00f;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.master[type=checkbox]:checked + label
+{
+background: #0080FF;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+.sharpflat[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#0080ff;
+text-align:center;
+font-size:13px;
+color:#00f;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.sharpflat[type=checkbox]:checked + label
+{
+background: #0080FF;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+.fret[type=checkbox] + label
+{
+background: transparent;
+height: 20px;
+width: 20px;
+border-radius:10px;
+border-style:solid;
+border-width:1px;
+border-color:#777;
+text-align:center;
+font-size:13px;
+color:#00f;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+.fret[type=checkbox]:checked + label
+{
+background: #777;
+height: 20px;
+width: 20px;
+border-radius:10px;
+text-align:center;
+font-size:13px;
+color:#fff;
+line-height:18px;
+display:inline-block;
+padding: 0 0 0 0px;
+}
+
+#s1f0 {position:absolute; width: 24px; height: 24px; left:515px; top:122px;}
+#s2f0 {position:absolute; width: 24px; height: 24px; left:515px; top:150px;}
+#s3f0 {position:absolute; width: 24px; height: 24px; left:515px; top:177px;}
+#s4f0 {position:absolute; width: 24px; height: 24px; left:515px; top:205px;}
+#s5f0 {position:absolute; width: 24px; height: 24px; left:515px; top:232px;}
+#s6f0 {position:absolute; width: 24px; height: 24px; left:515px; top:260px;}
+#s7f0 {position:absolute; width: 24px; height: 24px; left:515px; top:286px;}
+
+#s1f1 {position:absolute; width: 24px; height: 24px; left:570px; top:122px;}
+#s2f1 {position:absolute; width: 24px; height: 24px; left:570px; top:150px;}
+#s3f1 {position:absolute; width: 24px; height: 24px; left:570px; top:177px;}
+#s4f1 {position:absolute; width: 24px; height: 24px; left:570px; top:205px;}
+#s5f1 {position:absolute; width: 24px; height: 24px; left:570px; top:232px;}
+#s6f1 {position:absolute; width: 24px; height: 24px; left:570px; top:260px;}
+#s7f1 {position:absolute; width: 24px; height: 24px; left:570px; top:286px;}
+
+
+#s1f2 {position:absolute; width: 24px; height: 24px; left:618px; top:122px;}
+#s2f2 {position:absolute; width: 24px; height: 24px; left:618px; top:150px;}
+#s3f2 {position:absolute; width: 24px; height: 24px; left:618px; top:177px;}
+#s4f2 {position:absolute; width: 24px; height: 24px; left:618px; top:205px;}
+#s5f2 {position:absolute; width: 24px; height: 24px; left:618px; top:232px;}
+#s6f2 {position:absolute; width: 24px; height: 24px; left:618px; top:260px;}
+#s7f2 {position:absolute; width: 24px; height: 24px; left:618px; top:286px;}
+
+#s1f3 {position:absolute; width: 24px; height: 24px; left:666px; top:122px;}
+#s2f3 {position:absolute; width: 24px; height: 24px; left:666px; top:150px;}
+#s3f3 {position:absolute; width: 24px; height: 24px; left:666px; top:177px;}
+#s4f3 {position:absolute; width: 24px; height: 24px; left:666px; top:205px;}
+#s5f3 {position:absolute; width: 24px; height: 24px; left:666px; top:232px;}
+#s6f3 {position:absolute; width: 24px; height: 24px; left:666px; top:260px;}
+#s7f3 {position:absolute; width: 24px; height: 24px; left:666px; top:286px;}
+
+#s1f4 {position:absolute; width: 24px; height: 24px; left:720px; top:122px;}
+#s2f4 {position:absolute; width: 24px; height: 24px; left:720px; top:150px;}
+#s3f4 {position:absolute; width: 24px; height: 24px; left:720px; top:177px;}
+#s4f4 {position:absolute; width: 24px; height: 24px; left:720px; top:205px;}
+#s5f4 {position:absolute; width: 24px; height: 24px; left:720px; top:232px;}
+#s6f4 {position:absolute; width: 24px; height: 24px; left:720px; top:260px;}
+#s7f4 {position:absolute; width: 24px; height: 24px; left:720px; top:286px;}
+
+#s1f5 {position:absolute; width: 24px; height: 24px; left:770px; top:122px;}
+#s2f5 {position:absolute; width: 24px; height: 24px; left:770px; top:150px;}
+#s3f5 {position:absolute; width: 24px; height: 24px; left:770px; top:177px;}
+#s4f5 {position:absolute; width: 24px; height: 24px; left:770px; top:205px;}
+#s5f5 {position:absolute; width: 24px; height: 24px; left:770px; top:232px;}
+#s6f5 {position:absolute; width: 24px; height: 24px; left:770px; top:260px;}
+#s7f5 {position:absolute; width: 24px; height: 24px; left:770px; top:286px;}
+
+#s1f6 {position:absolute; width: 24px; height: 24px; left:820px; top:122px;}
+#s2f6 {position:absolute; width: 24px; height: 24px; left:820px; top:150px;}
+#s3f6 {position:absolute; width: 24px; height: 24px; left:820px; top:177px;}
+#s4f6 {position:absolute; width: 24px; height: 24px; left:820px; top:205px;}
+#s5f6 {position:absolute; width: 24px; height: 24px; left:820px; top:232px;}
+#s6f6 {position:absolute; width: 24px; height: 24px; left:820px; top:260px;}
+#s7f6 {position:absolute; width: 24px; height: 24px; left:820px; top:286px;}
+
+#s1f7 {position:absolute; width: 24px; height: 24px; left:873px; top:122px;}
+#s2f7 {position:absolute; width: 24px; height: 24px; left:873px; top:150px;}
+#s3f7 {position:absolute; width: 24px; height: 24px; left:873px; top:177px;}
+#s4f7 {position:absolute; width: 24px; height: 24px; left:873px; top:205px;}
+#s5f7 {position:absolute; width: 24px; height: 24px; left:873px; top:232px;}
+#s6f7 {position:absolute; width: 24px; height: 24px; left:873px; top:260px;}
+#s7f7 {position:absolute; width: 24px; height: 24px; left:873px; top:286px;}
+
+#s1f8 {position:absolute; width: 24px; height: 24px; left:926px; top:122px;}
+#s2f8 {position:absolute; width: 24px; height: 24px; left:926px; top:150px;}
+#s3f8 {position:absolute; width: 24px; height: 24px; left:926px; top:177px;}
+#s4f8 {position:absolute; width: 24px; height: 24px; left:926px; top:205px;}
+#s5f8 {position:absolute; width: 24px; height: 24px; left:926px; top:232px;}
+#s6f8 {position:absolute; width: 24px; height: 24px; left:926px; top:260px;}
+#s7f8 {position:absolute; width: 24px; height: 24px; left:926px; top:286px;}
+
+#s1f9 {position:absolute; width: 24px; height: 24px; left:976px; top:122px;}
+#s2f9 {position:absolute; width: 24px; height: 24px; left:976px; top:150px;}
+#s3f9 {position:absolute; width: 24px; height: 24px; left:976px; top:177px;}
+#s4f9 {position:absolute; width: 24px; height: 24px; left:976px; top:205px;}
+#s5f9 {position:absolute; width: 24px; height: 24px; left:976px; top:232px;}
+#s6f9 {position:absolute; width: 24px; height: 24px; left:976px; top:260px;}
+#s7f9 {position:absolute; width: 24px; height: 24px; left:976px; top:286px;}
+
+#s1f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:122px;}
+#s2f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:150px;}
+#s3f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:177px;}
+#s4f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:205px;}
+#s5f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:232px;}
+#s6f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:260px;}
+#s7f10 {position:absolute; width: 24px; height: 24px; left:1028px; top:286px;}
+
+#s1f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:122px;}
+#s2f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:150px;}
+#s3f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:177px;}
+#s4f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:205px;}
+#s5f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:232px;}
+#s6f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:260px;}
+#s7f11 {position:absolute; width: 24px; height: 24px; left:1080px; top:286px;}
+
+#s1f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:122px;}
+#s2f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:150px;}
+#s3f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:177px;}
+#s4f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:205px;}
+#s5f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:232px;}
+#s6f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:260px;}
+#s7f12 {position:absolute; width: 24px; height: 24px; left:1130px; top:286px;}
+
+#s1f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:122px;}
+#s2f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:150px;}
+#s3f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:177px;}
+#s4f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:205px;}
+#s5f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:232px;}
+#s6f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:260px;}
+#s7f13 {position:absolute; width: 24px; height: 24px; left:1180px; top:286px;}
+
+#s1f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:122px;}
+#s2f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:150px;}
+#s3f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:177px;}
+#s4f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:205px;}
+#s5f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:232px;}
+#s6f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:260px;}
+#s7f14 {position:absolute; width: 24px; height: 24px; left:1233px; top:286px;}
+
+#s1f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:122px;}
+#s2f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:150px;}
+#s3f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:177px;}
+#s4f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:205px;}
+#s5f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:232px;}
+#s6f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:260px;}
+#s7f15 {position:absolute; width: 24px; height: 24px; left:1283px; top:286px;}
+
+#s1f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:122px;}
+#s2f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:150px;}
+#s3f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:177px;}
+#s4f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:205px;}
+#s5f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:232px;}
+#s6f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:260px;}
+#s7f16 {position:absolute; width: 24px; height: 24px; left:1335px; top:286px;}
+
+#s1f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:122px;}
+#s2f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:150px;}
+#s3f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:177px;}
+#s4f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:205px;}
+#s5f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:232px;}
+#s6f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:260px;}
+#s7f17 {position:absolute; width: 24px; height: 24px; left:1385px; top:286px;}
+
+#s1f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:122px;}
+#s2f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:150px;}
+#s3f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:177px;}
+#s4f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:205px;}
+#s5f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:232px;}
+#s6f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:260px;}
+#s7f18 {position:absolute; width: 24px; height: 24px; left:1438px; top:286px;}
+
+#s1f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:122px;}
+#s2f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:150px;}
+#s3f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:177px;}
+#s4f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:205px;}
+#s5f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:232px;}
+#s6f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:260px;}
+#s7f19 {position:absolute; width: 24px; height: 24px; left:1488px; top:286px;}
+
+#s1f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:122px;}
+#s2f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:150px;}
+#s3f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:177px;}
+#s4f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:205px;}
+#s5f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:232px;}
+#s6f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:260px;}
+#s7f20 {position:absolute; width: 24px; height: 24px; left:1538px; top:286px;}
+
+#s1f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:122px;}
+#s2f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:150px;}
+#s3f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:177px;}
+#s4f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:205px;}
+#s5f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:232px;}
+#s6f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:260px;}
+#s7f21 {position:absolute; width: 24px; height: 24px; left:1590px; top:286px;}
+
+#s1f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:122px;}
+#s2f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:150px;}
+#s3f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:177px;}
+#s4f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:205px;}
+#s5f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:232px;}
+#s6f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:260px;}
+#s7f22 {position:absolute; width: 24px; height: 24px; left:1643px; top:286px;}
+
+#s1f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:122px;}
+#s2f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:150px;}
+#s3f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:177px;}
+#s4f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:205px;}
+#s5f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:232px;}
+#s6f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:260px;}
+#s7f23 {position:absolute; width: 24px; height: 24px; left:1695px; top:286px;}
+
+#s1f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:122px;}
+#s2f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:150px;}
+#s3f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:177px;}
+#s4f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:205px;}
+#s5f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:232px;}
+#s6f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:260px;}
+#s7f24 {position:absolute; width: 24px; height: 24px; left:1748px; top:286px;}
+
+#fret0 {position:absolute; width: 24px; height: 24px; left:515px; top:320px;}
+#fret1 {position:absolute; width: 24px; height: 24px; left:570px; top:320px;}
+#fret2 {position:absolute; width: 24px; height: 24px; left:618px; top:320px;}
+#fret3 {position:absolute; width: 24px; height: 24px; left:666px; top:320px;}
+#fret4 {position:absolute; width: 24px; height: 24px; left:720px; top:320px;}
+#fret5 {position:absolute; width: 24px; height: 24px; left:770px; top:320px;}
+#fret6 {position:absolute; width: 24px; height: 24px; left:820px; top:320px;}
+#fret7 {position:absolute; width: 24px; height: 24px; left:873px; top:320px;}
+#fret8 {position:absolute; width: 24px; height: 24px; left:926px; top:320px;}
+#fret9 {position:absolute; width: 24px; height: 24px; left:976px; top:320px;}
+#fret10 {position:absolute; width: 24px; height: 24px; left:1028px; top:320px;}
+#fret11 {position:absolute; width: 24px; height: 24px; left:1080px; top:320px;}
+#fret12 {position:absolute; width: 24px; height: 24px; left:1130px; top:320px;}
+#fret13 {position:absolute; width: 24px; height: 24px; left:1180px; top:320px;}
+#fret14 {position:absolute; width: 24px; height: 24px; left:1233px; top:320px;}
+#fret15 {position:absolute; width: 24px; height: 24px; left:1283px; top:320px;}
+#fret16 {position:absolute; width: 24px; height: 24px; left:1335px; top:320px;}
+#fret17 {position:absolute; width: 24px; height: 24px; left:1385px; top:320px;}
+#fret18 {position:absolute; width: 24px; height: 24px; left:1438px; top:320px;}
+#fret19 {position:absolute; width: 24px; height: 24px; left:1488px; top:320px;}
+#fret20 {position:absolute; width: 24px; height: 24px; left:1538px; top:320px;}
+#fret21 {position:absolute; width: 24px; height: 24px; left:1590px; top:320px;}
+#fret22 {position:absolute; width: 24px; height: 24px; left:1643px; top:320px;}
+#fret23 {position:absolute; width: 24px; height: 24px; left:1695px; top:320px;}
+#fret24 {position:absolute; width: 24px; height: 24px; left:1748px; top:320px;}
+
+
+#master {position:absolute; left:570px; top:360px;}
+		</style>
+		<script>
+var sharporflat = 'sharp';
+
+function initboxes(newtuning) {
+	var mydiv, checkbox, label, str, fret,thisnote,thislabeltxt, noteid, i, maxnote;
+
+	var standardtuning = 'B,E,A,D,G,B,E';
+	var fretzero;
+	var tuning;
+	var lastfret = [];
+	var thisfret = [];
+	var labels_flat = ["C", "Db", "D", "Eb","E","F","Gb","G","Ab","A","Bb","B"];
+	var labels = ["C", "C#", "D", "D#","E","F","F#","G","G#","A","A#","B"];
+	var notes = ["note_c[]","note_cs[]","note_d[]","note_ds[]","note_e[]","note_f[]","note_fs[]","note_g[]","note_gs[]","note_a[]","note_as[]","note_b[]"];
+	
+	if (newtuning == '') {
+		fretzero = standardtuning.split(',');
+	} else {
+		fretzero = newtuning.split(',');
+	}
+
+	function tripleselect(cb) {
+		if (cb.readOnly) cb.checked=cb.readOnly=false;
+		else if (!cb.checked) cb.readOnly=cb.indeterminate=true;
+	}
+
+	// fretzero
+	for (str=1; str<8; str++) {
+		// reverse tuning to string
+		tuning = 7-str;
+		thislabeltxt = fretzero[tuning];
+		
+		mydiv = document.createElement('div');
+		mydiv.id = "s" + str + "f0";
+
+		noteid = labels.indexOf(thislabeltxt);		
+		
+		if (thislabeltxt.indexOf("b") > 0) {
+			noteid = labels_flat.indexOf(thislabeltxt);
+		} else {
+			noteid = labels.indexOf(thislabeltxt);
+		}
+		lastfret[str-1] = labels[noteid];
+
+		checkbox = document.createElement('input');
+		checkbox.type = "checkbox";
+		checkbox.name = notes[noteid];
+		checkbox.className = "fretboard";
+		checkbox.value = "label" + str + "0";
+		checkbox.id = "dot" + str + "0";
+		checkbox.onclick = function() { tripleselect(this); };		
+		
+
+		label = document.createElement('label');
+		label.id = "label" + str + "0";
+		label.htmlFor = "dot" + str + "0";
+		label.appendChild(document.createTextNode(thislabeltxt));
+		
+		mydiv.appendChild(checkbox);
+		mydiv.appendChild(label);
+		
+		document.body.appendChild(mydiv);
+	}
+	
+	for (fret=1; fret < 25; fret++) {
+		// find notes from lastfret to thisfret
+		for (i=0; i<7; i++) {
+			if (lastfret[i] == 'B') {
+				thisfret[i] = 'C';
+			} else {
+				noteid = labels.indexOf(lastfret[i]) + 1;
+				thisfret[i] = labels[noteid];
+			}
+		}
+		// set div and checkboxes
+		for (str=1; str<8; str++) {
+			thislabeltxt = thisfret[str-1];
+			
+			mydiv = document.createElement('div');
+			mydiv.id = "s" + str + "f" + fret;
+			
+			noteid = labels.indexOf(thislabeltxt);		
+			checkbox = document.createElement('input');
+			checkbox.type = "checkbox";
+			checkbox.name = notes[noteid];
+			checkbox.className = "fretboard";
+			checkbox.value = "label" + str + "" + fret;
+			checkbox.id = "dot" + str + "" + fret;
+			checkbox.onclick = function() { tripleselect(this); };		
+			
+	
+			label = document.createElement('label');
+			label.id = "label" + str + "" + fret;
+			label.htmlFor = "dot" + str + "" + fret;
+			label.appendChild(document.createTextNode(thislabeltxt));
+			
+			mydiv.appendChild(checkbox);
+			mydiv.appendChild(label);
+			
+			document.body.appendChild(mydiv);
+			lastfret = thisfret.slice();
+		}
+		
+	}
+	var strUrl = location.search;
+	strUrl = strUrl.slice( 1 ); // delete the first character '?'
+	var index;
+	var cbarray;
+	
+	if (strUrl) {
+		getnotes = strUrl.split(",");
+		
+		for (index = 0; index < getnotes.length; ++index) {
+			note = getnotes[index].toLowerCase();
+			mnote = 'm' + note;
+			group = 'note_' + note + '[]';
+			thisnote = document.getElementById(mnote);
+			thisnote.checked = true;
+		    cbarray = document.getElementsByName(group);
+		    for(var i = 0; i < cbarray.length; i++){
+		        cbarray[i].checked = true;
+		    }
+		}
+	}
+
+} // initboxes
+
+
+function togglemeboxes(master,group){
+    var cbarray = document.getElementsByName(group);
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+}	
+
+function toggleallboxes(master){
+    var cbarray = document.getElementsByClassName('fretboard');
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+    
+    cbarray = document.getElementsByClassName('master');
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+
+    cbarray = document.getElementsByClassName('fret');
+    for(var i = 0; i < cbarray.length; i++){
+        cbarray[i].checked = master.checked;
+    }
+ 
+}	
+
+function togglesharpflat(master) {
+	var thislabel;
+    var cbarray;
+    cbarray = document.getElementsByName('note_cs[]');
+    for(var i = 0; i < cbarray.length; i++){
+        thislabel = cbarray[i].value;
+        document.getElementById(thislabel).innerHTML = 'Db';
+
+    }
+
+	if (master.checked) {
+		document.getElementById('label_mx').innerHTML = '#';
+	// C#
+		document.getElementById('labelcs').innerHTML = 'C#';
+    	cbarray = document.getElementsByName('note_cs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'C#';
+	
+	    }	
+	// D#
+		document.getElementById('labelds').innerHTML = 'D#';
+    	cbarray = document.getElementsByName('note_ds[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'D#';
+	
+	    }	
+	// F#
+		document.getElementById('labelfs').innerHTML = 'F#';
+    	cbarray = document.getElementsByName('note_fs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'F#';
+	
+	    }	
+	// G#
+		document.getElementById('labelgs').innerHTML = 'G#';
+    	cbarray = document.getElementsByName('note_gs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'G#';
+	
+	    }	
+	// A#
+		document.getElementById('labelas').innerHTML = 'A#';
+    	cbarray = document.getElementsByName('note_as[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'A#';
+	
+	    }	
+
+	}	else {
+		document.getElementById('label_mx').innerHTML = 'b';
+	// Db
+		document.getElementById('labelcs').innerHTML = 'Db';
+    	cbarray = document.getElementsByName('note_cs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Db';
+	
+	    }	
+	// Eb
+		document.getElementById('labelds').innerHTML = 'Eb';
+    	cbarray = document.getElementsByName('note_ds[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Eb';
+	
+	    }	
+	// Gb
+		document.getElementById('labelfs').innerHTML = 'Gb';
+    	cbarray = document.getElementsByName('note_fs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Gb';
+	
+	    }	
+	// Ab
+		document.getElementById('labelgs').innerHTML = 'Ab';
+    	cbarray = document.getElementsByName('note_gs[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Ab';
+	
+	    }	
+	// Bb
+		document.getElementById('labelas').innerHTML = 'Bb';
+    	cbarray = document.getElementsByName('note_as[]');
+	    for(var i = 0; i < cbarray.length; i++){
+	        thislabel = cbarray[i].value;
+	        document.getElementById(thislabel).innerHTML = 'Bb';
+	
+	    }	
+
+	}
+}
+
+function togglethisfret(master, fretnum) {
+	var line1 = 'dot1' + fretnum;
+	var line2 = 'dot2' + fretnum;
+	var line3 = 'dot3' + fretnum;
+	var line4 = 'dot4' + fretnum;
+	var line5 = 'dot5' + fretnum;
+	var line6 = 'dot6' + fretnum;
+	var line7 = 'dot7' + fretnum;
+
+	document.getElementById(line1).checked = master.checked;
+	document.getElementById(line2).checked = master.checked;
+	document.getElementById(line3).checked = master.checked;
+	document.getElementById(line4).checked = master.checked;
+	document.getElementById(line5).checked = master.checked;
+	document.getElementById(line6).checked = master.checked;
+	document.getElementById(line7).checked = master.checked;
+}
+</script>
+	</head>
+	<body onload="initboxes('Bb,F,Bb,Eb,F,Bb,Eb');">
+		<img src="guitar-fretboard-7.png" id="fretboard">
+
+		<div id='fret0'><input class='fret' type='checkbox' name='fret[]' value='0' id='f0' onchange="togglethisfret(this,0)"/><label for='f0'>0</label></div>
+		<div id='fret1'><input class='fret' type='checkbox' name='fret[]' value='1' id='f1' onchange="togglethisfret(this,1)"/><label for='f1'>1</label></div>
+		<div id='fret2'><input class='fret' type='checkbox' name='fret[]' value='2' id='f2' onchange="togglethisfret(this,2)"/><label for='f2'>2</label></div>
+		<div id='fret3'><input class='fret' type='checkbox' name='fret[]' value='3' id='f3' onchange="togglethisfret(this,3)"/><label for='f3'>3</label></div>
+		<div id='fret4'><input class='fret' type='checkbox' name='fret[]' value='4' id='f4' onchange="togglethisfret(this,4)"/><label for='f4'>4</label></div>
+		<div id='fret5'><input class='fret' type='checkbox' name='fret[]' value='5' id='f5' onchange="togglethisfret(this,5)"/><label for='f5'>5</label></div>
+		<div id='fret6'><input class='fret' type='checkbox' name='fret[]' value='6' id='f6' onchange="togglethisfret(this,6)"/><label for='f6'>6</label></div>
+		<div id='fret7'><input class='fret' type='checkbox' name='fret[]' value='7' id='f7' onchange="togglethisfret(this,7)"/><label for='f7'>7</label></div>
+		<div id='fret8'><input class='fret' type='checkbox' name='fret[]' value='8' id='f8' onchange="togglethisfret(this,8)"/><label for='f8'>8</label></div>
+		<div id='fret9'><input class='fret' type='checkbox' name='fret[]' value='9' id='f9' onchange="togglethisfret(this,9)"/><label for='f9'>9</label></div>
+		<div id='fret10'><input class='fret' type='checkbox' name='fret[]' value='10' id='f10' onchange="togglethisfret(this,10)"/><label for='f10'>10</label></div>
+		<div id='fret11'><input class='fret' type='checkbox' name='fret[]' value='11' id='f11' onchange="togglethisfret(this,11)"/><label for='f11'>11</label></div>
+		<div id='fret12'><input class='fret' type='checkbox' name='fret[]' value='12' id='f12' onchange="togglethisfret(this,12)"/><label for='f12'>12</label></div>
+		<div id='fret13'><input class='fret' type='checkbox' name='fret[]' value='13' id='f13' onchange="togglethisfret(this,13)"/><label for='f13'>13</label></div>
+		<div id='fret14'><input class='fret' type='checkbox' name='fret[]' value='14' id='f14' onchange="togglethisfret(this,14)"/><label for='f14'>14</label></div>
+		<div id='fret15'><input class='fret' type='checkbox' name='fret[]' value='15' id='f15' onchange="togglethisfret(this,15)"/><label for='f15'>15</label></div>
+		<div id='fret16'><input class='fret' type='checkbox' name='fret[]' value='16' id='f16' onchange="togglethisfret(this,16)"/><label for='f16'>16</label></div>
+		<div id='fret17'><input class='fret' type='checkbox' name='fret[]' value='17' id='f17' onchange="togglethisfret(this,17)"/><label for='f17'>17</label></div>
+		<div id='fret18'><input class='fret' type='checkbox' name='fret[]' value='18' id='f18' onchange="togglethisfret(this,18)"/><label for='f18'>18</label></div>
+		<div id='fret19'><input class='fret' type='checkbox' name='fret[]' value='19' id='f19' onchange="togglethisfret(this,19)"/><label for='f19'>19</label></div>
+		<div id='fret20'><input class='fret' type='checkbox' name='fret[]' value='20' id='f20' onchange="togglethisfret(this,20)"/><label for='f20'>20</label></div>
+		<div id='fret21'><input class='fret' type='checkbox' name='fret[]' value='21' id='f21' onchange="togglethisfret(this,21)"/><label for='f21'>21</label></div>
+		<div id='fret22'><input class='fret' type='checkbox' name='fret[]' value='22' id='f22' onchange="togglethisfret(this,22)"/><label for='f22'>22</label></div>
+		<div id='fret23'><input class='fret' type='checkbox' name='fret[]' value='23' id='f23' onchange="togglethisfret(this,23)"/><label for='f23'>23</label></div>
+		<div id='fret24'><input class='fret' type='checkbox' name='fret[]' value='24' id='f24' onchange="togglethisfret(this,24)"/><label for='f24'>24</label></div>
+
+		<div id="master">
+			<input type='checkbox' class='master' name='master[]' value='o' id='mo' onchange="toggleallboxes(this)"/><label for='mo'>All</label>
+			<input type='checkbox' class='master' name='master[]' value='c' id='mc' onchange="togglemeboxes(this,'note_c[]')"/><label for='mc'>C</label>
+			<input type='checkbox' class='master' name='master[]' value='cs' id='mcs' onchange="togglemeboxes(this,'note_cs[]')"/><label id='labelcs' for='mcs'>C#</label>
+			<input type='checkbox' class='master' name='master[]' value='d' id='md' onchange="togglemeboxes(this,'note_d[]')"/><label for='md'>D</label>
+			<input type='checkbox' class='master' name='master[]' value='ds' id='mds' onchange="togglemeboxes(this,'note_ds[]')"/><label id='labelds' for='mds'>D#</label>
+			<input type='checkbox' class='master' name='master[]' value='e' id='me' onchange="togglemeboxes(this,'note_e[]')"/><label for='me'>E</label>
+			<input type='checkbox' class='master' name='master[]' value='f' id='mf' onchange="togglemeboxes(this,'note_f[]')"/><label for='mf'>F</label>
+			<input type='checkbox' class='master' name='master[]' value='fs' id='mfs' onchange="togglemeboxes(this,'note_fs[]')"/><label id='labelfs' for='mfs'>F#</label>
+			<input type='checkbox' class='master' name='master[]' value='g' id='mg' onchange="togglemeboxes(this,'note_g[]')"/><label for='mg'>G</label>
+			<input type='checkbox' class='master' name='master[]' value='gs' id='mgs' onchange="togglemeboxes(this,'note_gs[]')"/><label id='labelgs' for='mgs'>G#</label>
+			<input type='checkbox' class='master' name='master[]' value='a' id='ma' onchange="togglemeboxes(this,'note_a[]')"/><label for='ma'>A</label>
+			<input type='checkbox' class='master' name='master[]' value='as' id='mas' onchange="togglemeboxes(this,'note_as[]')"/><label id='labelas' for='mas'>A#</label>
+			<input type='checkbox' class='master' name='master[]' value='b' id='mb' onchange="togglemeboxes(this,'note_b[]')"/><label for='mb'>B</label>
+			<input type='checkbox' class='sharpflat' name='master[]' value='x' id='mx' onChange="togglesharpflat(this)" checked/><label id='label_mx' for='mx'>#</label>
+		</div>
+<p>		<a href="index.html">6 : EADGBE</a> | <a href="index_eadgcf.html">6 : Perfect Fourth</a> | <a href="index_dadgad.html">6 : DADGAD</a> | <a href="index_drop_d.html">6 : Drop D</a> | <a href="index_dewey.html">6 : DEDGBD (Dewey Bunnell)</a> | <a href="index_7.html">7 : BEADGBE</a> | <a href="index_7_Gb.html">7 : BEADGbBE</a> | <a href="index_7_C.html">7 : CGCFADG</a> | <a href="index_7_P4.html">7 : Perfect Fourth</a> |  <a href="index_7_Bb.html">7 : Bb,F,Bb,Eb,F,Bb,Eb</a> | <a href="index_7_A.html">7 : ADADGAD</a>
+</p>
+		<img src='https://licensebuttons.net/l/by-sa/3.0/88x31.png'>
+	</body>
+
+</html>
